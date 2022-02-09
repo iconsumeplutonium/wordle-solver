@@ -60,17 +60,17 @@ public class WordFinder : MonoBehaviour {
             }
 
             List<string> possibleWords = new List<string>();
-            for (int i = 0; i < WordleList.words.Count; i++) {
-                if (containsGrayLetters(grayLetters, WordleList.words[i]))
+            for (int i = 0; i < WordmasterList.words.Count; i++) {
+                if (containsGrayLetters(grayLetters, WordmasterList.words[i]))
                     continue;
 
-                if (containsYellowLetters(yellowLetters, WordleList.words[i]))
+                if (containsYellowLetters(yellowLetters, WordmasterList.words[i]))
                     continue;
 
-                if (containsGreenLetters(greenLetters, WordleList.words[i]))
+                if (containsGreenLetters(greenLetters, WordmasterList.words[i]))
                     continue;
 
-                possibleWords.Add(WordleList.words[i]);
+                possibleWords.Add(WordmasterList.words[i]);
             }
 
             string output = "";
@@ -95,7 +95,7 @@ public class WordFinder : MonoBehaviour {
             if(grayLetters[i].Length > 1) {
                 char letter = grayLetters[i][0];
                 int pos = (int)char.GetNumericValue(grayLetters[i][1]);
-                if(word.Contains(letter.ToString()))
+                if(word[pos] == letter)
                     return true;
             } else {
                 if (word.Contains(grayLetters[i]))
