@@ -561,8 +561,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947759545}
-        m_TargetAssemblyTypeName: WordFinder, Assembly-CSharp
+      - m_Target: {fileID: 947759547}
+        m_TargetAssemblyTypeName: EntropyCalculator, Assembly-CSharp
         m_MethodName: OnPositionInputEntered
         m_Mode: 2
         m_Arguments:
@@ -895,6 +895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 947759546}
   - component: {fileID: 947759545}
+  - component: {fileID: 947759547}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -914,11 +915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df8ef9912e9a394e9d29732601ad38a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenLetters: []
-  yellowLetters: []
-  grayLetters: []
-  word: 
-  position: 
   wordInput: {fileID: 1398911871}
   posInput: {fileID: 576008173}
   wordText: {fileID: 1251907118}
@@ -938,6 +934,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &947759547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947759544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853b449ccd51b7e48a2887d4016d5d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wordInput: {fileID: 1398911871}
+  posInput: {fileID: 576008173}
+  wordText: {fileID: 1251907118}
+  posText: {fileID: 1595675448}
+  continueButton: {fileID: 1967942164}
+  greenLetters: []
+  yellowLetters: []
+  grayLetters: []
+  word: 
+  position: 
+  wf: {fileID: 947759545}
 --- !u!1 &953933356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,8 +1533,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947759545}
-        m_TargetAssemblyTypeName: WordFinder, Assembly-CSharp
+      - m_Target: {fileID: 947759547}
+        m_TargetAssemblyTypeName: EntropyCalculator, Assembly-CSharp
         m_MethodName: OnWordInputEntered
         m_Mode: 2
         m_Arguments:
@@ -1972,8 +1991,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947759545}
-        m_TargetAssemblyTypeName: WordFinder, Assembly-CSharp
+      - m_Target: {fileID: 947759547}
+        m_TargetAssemblyTypeName: EntropyCalculator, Assembly-CSharp
         m_MethodName: OnContinueButton
         m_Mode: 1
         m_Arguments:

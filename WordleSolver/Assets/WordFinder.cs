@@ -7,14 +7,12 @@ using TMPro;
 
 public class WordFinder : MonoBehaviour {
 
-    public List<string> greenLetters;
-    public List<string> yellowLetters;
-    public List<string> grayLetters;
+    //public List<string> greenLetters;
+    //public List<string> yellowLetters;
+    //public List<string> grayLetters;
 
-    public string word;
-    public string position;
-
-    private bool hasTypedWord;
+    //public string word;
+    //public string position;
 
     public GameObject wordInput;
     public GameObject posInput;
@@ -26,7 +24,8 @@ public class WordFinder : MonoBehaviour {
 
     }
 
-    public void main() {
+    public List<string> FindWords(string word, string position, List<string> grayLetters, List<string> yellowLetters, List<string> greenLetters) {
+        List<string> possibleWords = new List<string>();
         if (word != null && position != null) {
             for (int i = 0; i < 5; i++) {
 
@@ -59,7 +58,7 @@ public class WordFinder : MonoBehaviour {
                 }
             }
 
-            List<string> possibleWords = new List<string>();
+
             for (int i = 0; i < WordmasterList.words.Count; i++) {
                 if (containsGrayLetters(grayLetters, WordmasterList.words[i]))
                     continue;
@@ -73,15 +72,17 @@ public class WordFinder : MonoBehaviour {
                 possibleWords.Add(WordmasterList.words[i]);
             }
 
-            string output = "";
-            foreach (var w in possibleWords) {
-                output += w + ", ";
-            }
-            Debug.Log(output);
+            //string output = "";
+            //foreach (var w in possibleWords) {
+            //    output += w + ", ";
+            //}
+            //Debug.Log(output);
 
-            continueButton.SetActive(true);
+            //continueButton.SetActive(true);
 
-        } 
+        }
+
+        return possibleWords;
     }
 
     /*
@@ -147,27 +148,27 @@ public class WordFinder : MonoBehaviour {
         return false;
     }
 
-    public void OnWordInputEntered(TMP_InputField input) {
-        word = input.text;
-        input.text = "";
-        wordInput.SetActive(false);
-        posInput.SetActive(true);
-        wordText.text = word;
-    }
+    //public void OnWordInputEntered(TMP_InputField input) {
+    //    word = input.text;
+    //    input.text = "";
+    //    wordInput.SetActive(false);
+    //    posInput.SetActive(true);
+    //    wordText.text = word;
+    //}
 
-    public void OnPositionInputEntered(TMP_InputField input) {
-        position = input.text;
-        input.text = "";
-        posInput.SetActive(false);
-        posText.text = position;
-        main();
+    //public void OnPositionInputEntered(TMP_InputField input) {
+    //    position = input.text;
+    //    input.text = "";
+    //    posInput.SetActive(false);
+    //    posText.text = position;
+    //    FindWords();
 
-    }
+    //}
 
-    public void OnContinueButton() {
-        wordText.text = "";
-        posText.text = "";
-        wordInput.SetActive(true);
-        continueButton.SetActive(false);
-    }
+    //public void OnContinueButton() {
+    //    wordText.text = "";
+    //    posText.text = "";
+    //    wordInput.SetActive(true);
+    //    continueButton.SetActive(false);
+    //}
 }
