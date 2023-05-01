@@ -125,14 +125,20 @@ def main():
     print("-------------------------------")
     print("WORD     SCORE           FREQ")
     print("-------------------------------")
-    chosenDictionary = wordFreqDict if (currentGuess > 2) or (averageValue(wordValueDict) > 5) else wordValueDict
+    chosenDictionary = wordFreqDict if ((currentGuess > 2) or (averageValue(wordValueDict) > 5)) else wordValueDict
 
     # remove any words with multiple letters on the first and 2nd guess, or words with a frequency less than 0.00003
+    chosenDictionaryCopy = dict(chosenDictionary) #create a copy 
     if(currentGuess <= 2):
         for key, value in sorted(chosenDictionary.items(), key = itemgetter(0), reverse = True):
             s = set(key)
             if(len(s) < 4 or chosenDictionary[key] < 0.000003):
                 del chosenDictionary[key]
+
+
+    # for some reason on random words it will, for no apparent reason whatsoever, delete every single key in the dictionary
+    #even if len(s) >= 4 and chosenDict[key] >= 0.000003. This forces it to keep the dictionary populated anyways. Thank you python, very cool.
+    chosenDictionary = chosenDictionaryCopy if chosenDictionary == {} else chosenDictionary
 
     # print the words
     index = 0
